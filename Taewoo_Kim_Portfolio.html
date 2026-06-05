@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Taewoo Kim - Electrical engineering portfolio focused on power systems, utility infrastructure, substation engineering, embedded systems, and grid modernization." />
+  <title>Taewoo Kim | Power Systems Portfolio</title>
+  <style>
+    :root {
+      --bg: #060a12;
+      --bg-2: #090f1d;
+      --surface: rgba(255, 255, 255, 0.065);
+      --surface-strong: rgba(255, 255, 255, 0.105);
+      --surface-soft: rgba(255, 255, 255, 0.045);
+      --text: #f4f7fb;
+      --muted: #aab6cc;
+      --muted-2: #76859f;
+      --accent: #62e6ff;
+      --accent-2: #9b7cff;
+      --accent-3: #00f0a8;
+      --gold: #ffd166;
+      --line: rgba(255, 255, 255, 0.13);
+      --line-strong: rgba(255, 255, 255, 0.23);
+      --shadow: rgba(0, 0, 0, 0.35);
+      --shadow-strong: rgba(0, 0, 0, 0.62);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(98, 230, 255, 0.17), transparent 33rem),
+        radial-gradient(circle at 85% 6%, rgba(155, 124, 255, 0.17), transparent 34rem),
+        radial-gradient(circle at 50% 100%, rgba(0, 240, 168, 0.11), transparent 42rem),
+        linear-gradient(180deg, var(--bg) 0%, #08101f 48%, #05070d 100%);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(circle at center, rgba(0,0,0,0.82), transparent 78%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -35%;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        conic-gradient(from 170deg at 50% 50%, transparent 0deg, rgba(98, 230, 255, 0.08) 80deg, transparent 150deg, rgba(155, 124, 255, 0.08) 240deg, transparent 360deg);
+      filter: blur(34px);
+      animation: aurora 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes aurora {
+      from { transform: rotate(0deg) scale(1); opacity: 0.75; }
+      to { transform: rotate(12deg) scale(1.06); opacity: 1; }
+    }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      z-index: 9998;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      box-shadow: 0 0 18px rgba(98, 230, 255, 0.7);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: none; color: #ffffff; }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      background: rgba(5, 9, 17, 0.66);
+      backdrop-filter: blur(24px) saturate(150%);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    nav {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.86rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.68rem;
+      font-weight: 950;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 28px rgba(98,230,255,0.38);
+      display: grid;
+      place-items: center;
+      color: #06111f;
+      font-weight: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    nav a.nav-link {
+      color: rgba(244,247,251,0.72);
+      padding: 0.48rem 0.68rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 760;
+      transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    nav a.nav-link:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    header {
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 5rem 1rem 4rem;
+      position: relative;
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.8rem, 9vw, 8.6rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+      color: #ffffff;
+      text-wrap: balance;
+      text-shadow: 0 18px 70px rgba(0,0,0,0.48);
+    }
+
+    .hero-gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, #c8f6ff 36%, #d6c8ff 72%, #ffffff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes shimmer { to { background-position: 100% center; } }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 1.35rem 0 0;
+      color: rgba(244,247,251,0.76);
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+      line-height: 1.75;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.72rem;
+      margin-top: 1.8rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.075);
+      color: rgba(244,247,251,0.88);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+      padding: 0.58rem 0.92rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(98,230,255,0.55);
+      background: rgba(98,230,255,0.11);
+      color: #ffffff;
+    }
+
+    .hero-panel {
+      position: relative;
+      border-radius: 40px;
+      padding: 1px;
+      background: linear-gradient(145deg, rgba(98,230,255,0.48), rgba(155,124,255,0.26), rgba(0,240,168,0.22));
+      box-shadow: 0 35px 100px rgba(0,0,0,0.52);
+      transform-style: preserve-3d;
+    }
+
+    .profile-slot {
+      margin: 0;
+      min-height: 480px;
+      border-radius: 39px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 35% 8%, rgba(255,255,255,0.16), transparent 36%),
+        linear-gradient(145deg, rgba(255,255,255,0.095), rgba(255,255,255,0.035));
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .profile-slot::after {
+      content: "";
+      position: absolute;
+      inset: auto 1rem 1rem 1rem;
+      height: 38%;
+      border-radius: 28px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.66), transparent);
+      pointer-events: none;
+    }
+
+    .profile-slot img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.04) contrast(1.02);
+      cursor: zoom-in;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease;
+    }
+
+    .profile-slot:hover img { transform: scale(1.035); filter: saturate(1.14) contrast(1.06); }
+
+    .profile-caption {
+      position: absolute;
+      left: 1.25rem;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 2;
+      padding: 1rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(5, 9, 17, 0.42);
+      backdrop-filter: blur(18px);
+    }
+
+    .profile-caption strong { display: block; font-size: 1rem; color: #fff; }
+    .profile-caption span { color: rgba(244,247,251,0.72); font-size: 0.88rem; }
+
+    main {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1rem 0 5rem;
+    }
+
+    section {
+      margin: 5rem 0;
+      scroll-margin-top: 92px;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.3rem;
+    }
+
+    .section-kicker {
+      margin: 0 0 0.4rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      color: #ffffff;
+    }
+
+    .section-note {
+      margin: 0;
+      max-width: 340px;
+      color: var(--muted);
+      text-align: right;
+      font-size: 0.94rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .card, .timeline-item, .skill-box {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.096), rgba(255,255,255,0.045));
+      box-shadow: 0 22px 60px rgba(0,0,0,0.24);
+      backdrop-filter: blur(22px) saturate(140%);
+      overflow: hidden;
+    }
+
+    .card::before, .timeline-item::before, .skill-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--mx, 30%) var(--my, 0%), rgba(98,230,255,0.16), transparent 36%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover::before, .timeline-item:hover::before, .skill-box:hover::before { opacity: 1; }
+
+    .card {
+      grid-column: span 6;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(98,230,255,0.28);
+      box-shadow: 0 30px 92px rgba(0,0,0,0.38);
+    }
+
+    .card.full { grid-column: 1 / -1; }
+    .card.third { grid-column: span 4; }
+
+    h3 {
+      margin: 0 0 0.55rem;
+      color: #ffffff;
+      font-size: 1.12rem;
+      letter-spacing: -0.018em;
+      line-height: 1.25;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta {
+      position: relative;
+      z-index: 1;
+      color: var(--accent-3);
+      font-weight: 880;
+      font-size: 0.82rem;
+      margin-bottom: 0.72rem;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      position: relative;
+      z-index: 1;
+      margin: 0.55rem 0 0;
+      color: rgba(244,247,251,0.72);
+    }
+
+    .tag-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.48rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      color: rgba(244,247,251,0.84);
+      background: rgba(98,230,255,0.075);
+      border: 1px solid rgba(98,230,255,0.18);
+      border-radius: 999px;
+      padding: 0.32rem 0.65rem;
+      font-size: 0.77rem;
+      font-weight: 850;
+    }
+
+    .media-row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.78rem;
+      margin-top: 1.1rem;
+    }
+
+    .media-row.single { grid-template-columns: 1fr; }
+
+    .media-slot {
+      min-height: 218px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(4, 8, 16, 0.52);
+      border: 1px solid rgba(255,255,255,0.11);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .media-slot img, .media-slot video {
+      width: 100%;
+      height: 100%;
+      min-height: 218px;
+      object-fit: contain;
+      display: block;
+      background: #050913;
+      border: 0;
+    }
+
+    .media-slot img { cursor: zoom-in; transition: transform 0.35s ease, filter 0.35s ease; }
+    .media-slot:hover img { transform: scale(1.02); filter: saturate(1.12); }
+
+    .placeholder-fallback {
+      min-height: 218px;
+      width: 100%;
+      color: rgba(244,247,251,0.68);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.2rem;
+      font-weight: 760;
+      line-height: 1.45;
+      border: 1px dashed rgba(98,230,255,0.24);
+      border-radius: 18px;
+      background: rgba(98,230,255,0.045);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      border-radius: 24px;
+      padding: 1.2rem 1.25rem 1.2rem 1.35rem;
+      border-left: 4px solid var(--accent-3);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .timeline-item:hover { transform: translateX(4px); border-color: var(--accent); }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-box {
+      border-radius: 22px;
+      padding: 1.1rem;
+    }
+
+    .skill-box strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      color: #ffffff;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-box p { color: var(--muted); }
+
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(3, 6, 12, 0.88);
+      backdrop-filter: blur(14px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .image-modal.open { display: flex; }
+
+    .image-modal img {
+      max-width: 94vw;
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 18px;
+      background: #02040a;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.76), 0 0 0 1px rgba(255,255,255,0.12);
+    }
+
+    .image-modal-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.35rem;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(18px);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .image-modal-close:hover { transform: scale(1.06); background: rgba(255,255,255,0.18); }
+
+    .image-modal-caption {
+      position: fixed;
+      bottom: 1.05rem;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: min(920px, 88vw);
+      color: rgba(244,247,251,0.86);
+      text-align: center;
+      font-size: 0.94rem;
+      font-weight: 750;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.75);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted-2);
+      padding: 3rem 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: rgba(5,9,17,0.58);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .profile-slot { min-height: 420px; }
+      .profile-slot img { min-height: 420px; }
+      nav { display: block; }
+      .brand { margin-bottom: 0.65rem; }
+      .nav-links { justify-content: center; }
+      .section-header { grid-template-columns: 1fr; }
+      .section-note { text-align: left; }
+    }
+
+    @media (max-width: 820px) {
+      header { min-height: auto; padding-top: 4rem; }
+      .card, .card.third { grid-column: 1 / -1; }
+      .media-row { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(3.2rem, 16vw, 5.2rem); }
+      .profile-slot, .profile-slot img { min-height: 340px; }
+      .contact-row { gap: 0.55rem; }
+      .pill { width: 100%; }
+      section { margin: 3.4rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="nav-wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Go to homepage"><span class="brand-mark">TK</span><span>Taewoo Kim</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#capstone">Capstone</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#competitions">Competitions</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#awards">Awards</a>
+      </div>
+    </nav>
+  </div>
+
+  <header id="home">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">Electrical Engineering · Power Systems · Utility Infrastructure</div>
+        <h1><span class="hero-gradient-text">Taewoo Kim</span></h1>
+        <p class="subtitle">
+          EIT-eligible electrical engineering graduate focused on power systems, transmission planning, distribution design,
+          substation engineering, SCADA/RTAC integration, embedded systems, and applied grid-infrastructure projects.
+        </p>
+        <div class="contact-row">
+          <a class="pill" href="mailto:taewookim0927@gmail.com">Email</a>
+          <span class="pill">+1 778-814-5398</span>
+          <a class="pill" href="https://www.linkedin.com/in/taewookim0927/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="pdf/CV_Curriculum Vitae_Taewoo_Kim_2026.pdf" target="_blank" rel="noopener">CV</a>
+          <a class="pill" href="pdf/Resume_Taewoo_Kim_2026_v3.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal">
+        <figure class="profile-slot" aria-label="Profile image">
+          <img src="photos/profile/profile_photo.jpeg" alt="Taewoo Kim profile photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="placeholder-fallback">Profile Image Placeholder</div>
+          <figcaption class="profile-caption">
+            <strong>Power Systems Portfolio</strong>
+            <span>Utility engineering, grid modernization, and applied embedded systems.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Overview</p>
+          <h2>About</h2>
+        </div>
+        <p class="section-note">Power systems, grid modernization, and utility engineering.</p>
+      </div>
+      <div class="grid">
+        <article class="card full">
+          <h3>Profile</h3>
+          <p>
+            Hi, I’m Taewoo Kim, an electrical engineering graduate with a strong interest in power systems, utility infrastructure, and grid modernization.
+            My background includes hands-on experience in transmission planning, distribution design, substation engineering, SCADA/RTAC integration, and embedded systems projects.
+            I enjoy connecting practical utility engineering with modern technologies, and I’m passionate about contributing to reliable, sustainable, and smarter power systems.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Power System Stability</span>
+            <span class="tag">Grid Modernization</span>
+            <span class="tag">Power System Modelling</span>
+            <span class="tag">DER & EV Integration</span>
+            <span class="tag">Utility Infrastructure</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Education</h3>
+          <div class="meta">B.Eng. Electrical Engineering · BCIT · 2022–2026</div>
+          <p>
+            CGPA 92%. Relevant coursework includes Power System Components, Power System Design, Advanced Circuit Analysis,
+            Electromagnetic Fundamentals, Signal Processing and Filters, Digital System Design, Microcontroller Systems, and Analog & Digital Communication.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Research Interests</h3>
+          <p>
+            Grid modernization, smart grids, renewable energy resources, power-system stability, power-system modelling and planning,
+            DER and EV integration, large-load interconnection studies, and dynamic modeling of modern electronic loads.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Industry</p>
+          <h2>Work Experience</h2>
+        </div>
+        <p class="section-note">Transmission · Distribution · Substation · SCADA</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Xentric Engineering</h3>
+          <div class="meta">Substation Intern, Part-time · Langley, BC · Sept 2025 – June 2026</div>
+          <p>
+            Supported substation physical layouts and elevation drawings, reviewed vendor drawings and equipment specifications,
+            drafted single-line and three-line diagrams, and configured RTAC/HMI systems using SEL-5033 and SEL-5035. Work included
+            IED communication setup, RTAC tag mapping, SCADA point integration, and exposure to IEC 61131-3-based automation logic.
+          </p>
+        </article>
+        <article class="timeline-item">
+          <h3>Actalent</h3>
+          <div class="meta">OH Distribution Designer · New Westminster, BC · Feb 2025 – Sept 2025</div>
+          <p>
+            Worked on BC Hydro overhead distribution pole-maintenance designs using ES43 standards and telecom preliminary projects
+            involving pole modeling with SPIDAcalc and PLS-CADD to verify structural strength and clearances.
+          </p>
+        </article>
+        <article class="timeline-item">
+          <h3>BC Hydro</h3>
+          <div class="meta">Electrical Engineering Student, Co-op · Transmission Sustainability Planning · May 2024 – Aug 2024</div>
+          <p>
+            Gained exposure to transmission components, asset inspection, infrastructure replacement planning, and substation system
+            map markups. Prepared a transmission circuit-line replacement proposal and developed a VBA tool to streamline TAR-form
+            communication between field operators and the planning team.
+          </p>
+        </article>
+        <article class="timeline-item">
+          <h3>ZE Power Engineering</h3>
+          <div class="meta">Design Assistant, Co-op & Part-time · Richmond, BC · Jan 2023 – May 2024 & Aug 2024 – Feb 2025</div>
+          <p>
+            Worked on BC Hydro underground feeder cable replacement designs using ES53 standards and overhead distribution pole
+            maintenance designs using ES43 standards. Also developed Python automation tools for pull-planning reports and BC One Call
+            workflow support.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="capstone" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Capstone</p>
+          <h2>Utility Health Monitoring System</h2>
+        </div>
+        <p class="section-note">BCIT School of Energy · Supervisor: Prof. Ed Casas</p>
+      </div>
+      <article class="card full">
+        <div class="meta">Utility Pole Monitoring Prototype · Sept 2025 – May 2026</div>
+        <h3>Sensor-Based Utility Pole Monitoring Prototype</h3>
+        <p>
+          Designed and implemented a proof-of-concept pole-monitoring system that measures pole tilt and moisture using ESP32-C3
+          sensing nodes, an LIS3DH accelerometer, and an FDC1004 capacitance sensor. The system transmits readings through an
+          ESP-based wireless mesh network to a fixed root node, then forwards data to a PC application for SQLite database storage,
+          dashboard visualization, and offline map-based monitoring. The project integrated embedded firmware, PCB design,
+          sensor calibration, wireless communication, and enclosure design for a battery-powered pole-mounted prototype.
+        </p>
+        <div class="tag-row">
+          <span class="tag">ESP32-C3</span><span class="tag">LIS3DH</span><span class="tag">FDC1004</span><span class="tag">Wireless Mesh</span><span class="tag">SQLite</span><span class="tag">PCB Design</span>
+        </div>
+        <div class="media-row">
+          <div class="media-slot" aria-label="Capstone project photo">
+            <img src="photos/capstone/capstone_fair_poster.jpg" alt="Capstone project poster" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="placeholder-fallback">Capstone photo placeholder</div>
+          </div>
+          <div class="media-slot" aria-label="Capstone project photo">
+            <img src="photos/capstone/capstone_view.jpg" alt="Capstone project prototype view" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="placeholder-fallback">Capstone photo placeholder</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Selected Work</p>
+          <h2>Projects</h2>
+        </div>
+        <p class="section-note">Embedded systems, automation, power electronics, and image processing.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta">Oct 2025 – Dec 2025</div>
+          <h3>Stream Deck HID · RPi Pico 2W & FreeRTOS</h3>
+          <p>
+            Co-developed a real-time Stream Deck HID device using Raspberry Pi Pico 2W, capacitive touch buttons, a rotary encoder,
+            and an SSD1306 OLED display. Implemented FreeRTOS firmware with separate tasks for BLE communication, GPIO setup,
+            OLED updates, input monitoring, and encoder processing, using GPIO ISRs, FreeRTOS queues, and a Python Bleak host script.
+          </p>
+          <div class="tag-row"><span class="tag">C</span><span class="tag">FreeRTOS</span><span class="tag">BLE</span><span class="tag">RPi Pico 2W</span></div>
+          <div class="media-row">
+            <div class="media-slot"><img src="photos/Streamdeck/streamdeck-sideview.jpg" alt="Stream Deck side view" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">Stream Deck photo placeholder</div></div>
+            <div class="media-slot"><img src="photos/Streamdeck/Topview.jpg" alt="Stream Deck top view" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">Stream Deck photo placeholder</div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="meta">Feb 2025 – Apr 2025</div>
+          <h3>Optical Satellite Simulation · DE0-Nano SoC</h3>
+          <p>
+            Designed an FPGA-based optical communication simulator using DE0-Nano-SoC, Verilog/SystemVerilog, laser-based OOK
+            modulation, and UART communication. Implemented data encoding and decoding logic to transmit text through optical pulses,
+            reconstruct messages on the receiver side, and display decoded text on a PC interface with configurable transmission frequency.
+          </p>
+          <div class="tag-row"><span class="tag">SystemVerilog</span><span class="tag">FPGA</span><span class="tag">UART</span><span class="tag">OOK</span></div>
+          <div class="media-row single">
+            <div class="media-slot"><video controls preload="metadata" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><source src="photos/optical/samplevideo.MOV" type="video/mp4" /></video><div class="placeholder-fallback">Optical simulation video placeholder</div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="meta">Feb 2025 – Apr 2025</div>
+          <h3>Autonomous Rover · Raspberry Pi & OpenCV</h3>
+          <p>
+            Developed a Raspberry Pi 4 rover in C++ using object-oriented design, modular vehicle-control classes, ArUco marker
+            detection, and TCP client/server communication. Implemented controller teleoperation with live video streaming and OpenCV-based
+            autonomous navigation using marker detection, camera calibration, and distance estimation. Designed mechanical and electrical
+            integration using SolidWorks and a custom KiCad Raspberry Pi HAT PCB.
+          </p>
+          <div class="tag-row"><span class="tag">C++</span><span class="tag">OpenCV</span><span class="tag">SolidWorks</span><span class="tag">KiCad</span></div>
+          <div class="media-row">
+            <div class="media-slot"><img src="photos/Rover/Image of arena.png" alt="Autonomous rover arena" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">Rover photo placeholder</div></div>
+            <div class="media-slot"><video controls preload="metadata" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><source src="photos/Rover/AUTONOMOUS DEMO.mp4" type="video/mp4" /></video><div class="placeholder-fallback">Rover video placeholder</div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="meta">Feb 2025 – Apr 2025</div>
+          <h3>Autonomous Ball-Sorting Machine · RPi & OpenCV</h3>
+          <p>
+            Developed a Raspberry Pi-based autonomous ball-sorting machine using C++ OOP and OpenCV to detect object colors and classify
+            materials. Integrated a simple motor-driven sorting mechanism and MCP3008 ADC to control object placement based on image-processing results.
+          </p>
+          <div class="tag-row"><span class="tag">Raspberry Pi</span><span class="tag">OpenCV</span><span class="tag">MCP3008</span><span class="tag">Motor Control</span></div>
+        </article>
+
+        <article class="card">
+          <div class="meta">Feb 2024 – Apr 2024</div>
+          <h3>BC One Call Automation · Python</h3>
+          <p>
+            Developed a Python automation tool with a user-friendly interface to automate data extraction, processing, and input preparation
+            for BC One Call ticket submissions, improving workflow efficiency and consistency for utility design coordination.
+          </p>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">Automation</span><span class="tag">Data Processing</span></div>
+          <div class="media-row">
+            <div class="media-slot"><img src="photos/bc1c/Dark.jpg" alt="BC One Call automation interface" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">BC One Call photo placeholder</div></div>
+            <div class="media-slot"><video controls preload="metadata" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><source src="photos/bc1c/Demo.mov" type="video/mp4" /></video><div class="placeholder-fallback">BC One Call video placeholder</div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="meta">Feb 2023 – Apr 2023</div>
+          <h3>Portable DC Power Supply · Altium</h3>
+          <p>
+            Designed a portable DC power supply PCB in Altium, including schematic, component placement, and board layout. Created 2D and
+            3D technical drawings of the chassis in AutoCAD and assembled/tested the PCB by hand soldering through-hole and SMD components.
+          </p>
+          <div class="tag-row"><span class="tag">Altium</span><span class="tag">AutoCAD</span><span class="tag">PCB Layout</span><span class="tag">Soldering</span></div>
+          <div class="media-row">
+            <div class="media-slot"><img src="photos/DC_power_supply/Chasis.jpg" alt="Portable DC power supply chassis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">DC power supply photo placeholder</div></div>
+            <div class="media-slot"><img src="photos/DC_power_supply/Schematic_diagram.png" alt="Portable DC power supply schematic diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">DC power supply schematic placeholder</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="competitions" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Competitions</p>
+          <h2>Engineering Challenges</h2>
+        </div>
+        <p class="section-note">Applied engineering under time and design constraints.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta">Western Engineering Competition · University of Saskatchewan · Jan 2025</div>
+          <h3>Fire Hall Placement Optimization</h3>
+          <p>
+            Competed in Programming and developed a solution for an urban planning challenge focused on optimizing fire hall placement
+            as cities expand. The project used MATLAB for backend optimization/modeling and Python to present results through a web-based interface.
+          </p>
+          <div class="tag-row"><span class="tag">MATLAB</span><span class="tag">Python</span><span class="tag">Optimization</span></div>
+          <div class="media-row single"><div class="media-slot"><img src="photos/firehall/Firehall.jpeg" alt="Western Engineering Competition fire hall placement project" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">WEC photo placeholder</div></div></div>
+        </article>
+        <article class="card">
+          <div class="meta">BCIT Engineering Competition · Senior Design · Second Place</div>
+          <h3>Wireless Rescue Vehicle</h3>
+          <p>
+            Won second place by designing and building a wirelessly controlled rescue vehicle within a two-hour time limit. The vehicle used
+            an Arduino, motors, and sensors to detect an “injured pedestrian,” navigate a course, and transport them to a hospital location.
+          </p>
+          <div class="tag-row"><span class="tag">Arduino</span><span class="tag">Sensors</span><span class="tag">Rapid Prototyping</span></div>
+          <div class="media-row">
+            <div class="media-slot"><img src="photos/BEC/bec1.jpg" alt="BCIT Engineering Competition vehicle photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">BEC photo placeholder</div></div>
+            <div class="media-slot"><img src="photos/BEC/bec2.jpg" alt="BCIT Engineering Competition vehicle photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="placeholder-fallback">BEC photo placeholder</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Capabilities</p>
+          <h2>Technical Skills</h2>
+        </div>
+        <p class="section-note">Software, programming, embedded systems, PCB, and test equipment.</p>
+      </div>
+      <div class="skills">
+        <div class="skill-box"><strong>Programming & Tools</strong><p>C, C++, Python, MATLAB/Simulink, SystemVerilog, OpenCV, VS Code, Visual Studio, SolidWorks, ETAP, OpenDSS, PLS-CADD.</p></div>
+        <div class="skill-box"><strong>Utility & Engineering Software</strong><p>SPIDAcalc, AutoCAD, DAD, PowerGrid, SEL-5033, SEL-5035, SAP, BCH ES43/ES53/ES44, CSA 22.1 and CSA 22.3.</p></div>
+        <div class="skill-box"><strong>Embedded & Hardware</strong><p>TI MCUs, Raspberry Pi, RPi Pico 2W, Arduino, ESP32, UART/SPI/I2C, firmware development, KiCad, Altium, soldering, 3D printing.</p></div>
+        <div class="skill-box"><strong>Test & Measurement</strong><p>Oscilloscope, digital multimeter, logic analyzer, and spectrum analyzer.</p></div>
+        <div class="skill-box"><strong>Power Systems</strong><p>Power-system components, distribution design, substation drawings, SCADA/RTAC support, grid planning exposure, and power-system modelling interests.</p></div>
+        <div class="skill-box"><strong>Research Direction</strong><p>Power-system stability, large-load interconnection, static/dynamic load modeling, voltage recovery, SCR sensitivity, and grid modernization.</p></div>
+      </div>
+    </section>
+
+    <section id="awards" class="reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Recognition</p>
+          <h2>Awards & Scholarships</h2>
+        </div>
+        <p class="section-note">Academic recognition and competition results.</p>
+      </div>
+      <div class="grid">
+        <article class="card third"><h3>BCIT The Robert B. Wells and Family Award</h3><div class="meta">October 2024</div></article>
+        <article class="card third"><h3>BCIT International Student Award</h3><div class="meta">October 2023</div><p>Recognized for achieving the highest GPA among international students at BCIT.</p></article>
+        <article class="card third"><h3>BCIT Faculty and Staff Association Scholarship</h3><div class="meta">October 2023</div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Taewoo Kim.</p>
+  </footer>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true" role="dialog" aria-label="Expanded project image">
+    <button class="image-modal-close" id="imageModalClose" aria-label="Close image">&times;</button>
+    <img id="imageModalImg" src="" alt="" />
+    <div class="image-modal-caption" id="imageModalCaption"></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imageModalImg");
+    const modalCaption = document.getElementById("imageModalCaption");
+    const modalClose = document.getElementById("imageModalClose");
+    const progress = document.getElementById("scrollProgress");
+
+    function openImageModal(img) {
+      if (!img || !img.src || img.style.display === "none") return;
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || "Expanded portfolio image";
+      modalCaption.textContent = img.alt || "";
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImageModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".media-slot img, .profile-slot img").forEach((img) => {
+      img.addEventListener("click", () => openImageModal(img));
+      img.setAttribute("tabindex", "0");
+      img.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openImageModal(img);
+        }
+      });
+    });
+
+    modalClose.addEventListener("click", closeImageModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeImageModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("open")) closeImageModal();
+    });
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = ratio + "%";
+    }
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll(".card, .timeline-item, .skill-box").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mx", x + "%");
+        card.style.setProperty("--my", y + "%");
+      });
+    });
+  </script>
+</body>
+</html>
